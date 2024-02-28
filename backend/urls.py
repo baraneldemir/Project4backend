@@ -31,5 +31,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('token/', jwt_views.TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path('token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+    path('auth_logout/', views.LogoutView.as_view(), name='auth_logout'),
+    path('signup/', views.SignupView.as_view(), name='auth_register'),
     path('', include(router.urls)),
 ]

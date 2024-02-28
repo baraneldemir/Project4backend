@@ -33,7 +33,8 @@ SECRET_KEY = 'django-insecure-w2)735moz*n^29v5yhmh4!7$+j11pr0n=-0aeea+u#1&c_bb*j
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost'
+    'localhost',
+    '127.0.0.1'
 ]
 
 
@@ -54,6 +55,7 @@ INSTALLED_APPS = [
 CORS_ORIGIN_ALLOW_ALL = True
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -67,6 +69,7 @@ ROOT_URLCONF = 'backend.urls'
 
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost/'
+    'http://127.0.0.1/'
 ]
 
 TEMPLATES = [
