@@ -25,6 +25,7 @@ router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'cats', views.CatViewSet)
+router.register(r'people', views.PeopleViewSet)
 
 
 urlpatterns = [
@@ -32,6 +33,8 @@ urlpatterns = [
     path('token/', jwt_views.TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path('token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     path('auth_logout/', views.LogoutView.as_view(), name='auth_logout'),
-    path('signup/', views.SignupView.as_view(), name='auth_register'),
+    path('signup/', views.SignupView.as_view(), name='signup'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('', include(router.urls)),
 ]

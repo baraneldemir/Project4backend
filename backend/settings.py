@@ -41,6 +41,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'main_app',
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
@@ -55,6 +56,7 @@ INSTALLED_APPS = [
 CORS_ORIGIN_ALLOW_ALL = True
 
 MIDDLEWARE = [
+    # "whitenoise.middleware.WhiteNoiseMiddleware",
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -68,7 +70,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'backend.urls'
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://localhost/'
+    'http://localhost/',
     'http://127.0.0.1/'
 ]
 
@@ -153,9 +155,10 @@ REST_FRAMEWORK = {
     ]
 }
 
+
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=1),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=3),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=3),
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True
 }

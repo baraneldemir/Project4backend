@@ -1,11 +1,11 @@
 from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets, status
-from .models import Cat
+from .models import *
 from .serializers import *
 from rest_framework.views import APIView
 from rest_framework.response import Response 
 from rest_framework_simplejwt.tokens import RefreshToken
-
+from django.forms import BaseModelForm
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
@@ -22,8 +22,14 @@ class CatViewSet(viewsets.ModelViewSet):
     serializer_class = CatsSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+class PeopleViewSet(viewsets.ModelViewSet):
+    queryset = People.objects.all()
+    serializer_class = PeopleSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
 class LogoutView(APIView):
     def post(self, request):
+        print(request.data)
         try :
             refresh_token = request.data['refresh_token']
             token = RefreshToken(refresh_token)
@@ -46,3 +52,7 @@ class SignupView(APIView):
             return Response(status=status.HTTP_200_OK)
         except Exception as e:
             return Response(status=status.HTTP_400_BAD_REQUEST)
+        
+
+
+
