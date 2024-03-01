@@ -34,7 +34,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
-    '127.0.0.1'
+    '127.0.0.1',
+    'project4backend-production-5794.up.railway.app',
+    'project4backend.railway.internal'
 ]
 
 
