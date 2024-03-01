@@ -18,7 +18,7 @@ class CatsSerializer(serializers.HyperlinkedModelSerializer):
         fields = '__all__'
         
 
-class PeopleSerializer(serializers.HyperlinkedModelSerializer):
+class PeopleSerializer(serializers.ModelSerializer):
     class Meta:
         model = People
         fields = '__all__'
