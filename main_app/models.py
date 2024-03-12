@@ -39,12 +39,3 @@ class Photo(models.Model):
         return reverse('detail', kwargs={'people_id': self.id})
 
 
-
-# class Comment(models.Model):
-#     comment_owner = models.CharField(max_length=50)
-#     comment = models.TextField(max_length=500)
-
-
-#     def __str__(self):
-#         return self.name    
-
