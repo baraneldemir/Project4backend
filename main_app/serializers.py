@@ -1,5 +1,5 @@
 from django.contrib.auth.models import Group, User
-from .models import Cat, People, Photo, Comment
+from .models import Cat, People, Photo
 from rest_framework import serializers
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):

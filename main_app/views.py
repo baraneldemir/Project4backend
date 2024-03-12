@@ -81,10 +81,8 @@ class PeopleViewSet(viewsets.ModelViewSet):
             profile = People.objects.create(name=name, designation=designation, description=description, twitter=twitter, linkedin=linkedin, image=image)
             profile.save()
             return Response(status=status.HTTP_200_OK)
-        
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        
 
 
 # class PeopleUpdate(UpdateView):
